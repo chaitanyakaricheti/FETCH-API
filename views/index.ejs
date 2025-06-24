@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cocktail Generator</title>
+    <!-- Link to the CSS file in the public folder -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>🍹 Random Cocktail Generator</h1>
+
+    <div class="cocktail-container">
+        <h2><%= cocktail.strDrink %></h2>
+        <img src="<%= cocktail.strDrinkThumb %>" alt="Cocktail Image">
+
+        <h3>Ingredients:</h3>
+        <ul>
+            <% for (let i = 1; i <= 15; i++) { %>
+                <% if (cocktail["strIngredient" + i]) { %>
+                    <li><%= cocktail["strIngredient" + i] %> - <%= cocktail["strMeasure" + i] || "" %></li>
+                <% } %>
+            <% } %>
+        </ul>
+
+        <h3>Instructions:</h3>
+        <p><%= cocktail.strInstructions %></p>
+
+        <a href="/">🔄 Get Another Cocktail</a>
+    </div>
+</body>
+</html>
